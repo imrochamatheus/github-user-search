@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Space Mono";
+  src: url("/assets/fonts/Space_Mono/SpaceMono-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/assets/fonts/Space_Mono/SpaceMono-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-family: "Space Mono", monospace;
+
+@light-text-color: #697c9a;
+@light-main-bg-color: #f6f8ff;
+@light-card-bg-color: #ffffff;
+
+@dark-text-color: #ffffff;
+@dark-main-bg-color: #141d2f;
+@dark-card-bg-color: #1e2a47;
+
+.defineTheme(
+  @themeName: lightTheme,
+  @textColor: @light-text-color,
+  @mainBgColor: @light-main-bg-color,
+  @cardBgColor: @light-card-bg-color
+) {
+  .@{themeName} {
+    --font-family: @font-family;
+    --text-color: @textColor;
+    --bg-color: @mainBgColor;
+    --card-bg-color: @cardBgColor;
+  }
+}
+
+.defineTheme();
+.defineTheme(darkTheme, @dark-text-color, @dark-main-bg-color, @dark-card-bg-color);
