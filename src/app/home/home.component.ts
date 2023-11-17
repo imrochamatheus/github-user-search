@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileCardComponent } from '../profile-card/profile-card.component';
 import { ThemeToggleService } from '../theme-switch/theme-toggle.service';
+import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'toh-home',
   standalone: true,
-  imports: [CommonModule, ProfileCardComponent],
+  imports: [
+    CommonModule,
+    SearchBarComponent,
+    ProfileCardComponent,
+    ThemeSwitchComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less',
-  providers: [ThemeToggleService],
+  providers: [],
 })
 export class HomeComponent {
-  constructor(private readonly themeToggleService: ThemeToggleService) {
-    themeToggleService.toggleTheme();
-  }
+  constructor() {}
 }

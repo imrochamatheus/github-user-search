@@ -1,40 +1,72 @@
 @font-face {
   font-family: "Space Mono";
-  src: url("/assets/fonts/Space_Mono/SpaceMono-Bold.ttf");
+  src: url("/assets/fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Space Mono";
-  src: url("/assets/fonts/Space_Mono/SpaceMono-Regular.ttf");
+  src: url("/assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-family: "Space Mono", monospace;
+@font-size-title: 1.6rem;
+@font-size-subtitle: 1.3rem;
+@font-size-text: 1rem;
 
+@line-height-title: 2.4rem;
+@line-height-subtitle: 2rem;
+@line-height-text: 1.5rem;
+
+@color-red: #f74646;
+@color-blue: #0079ff;
+@color-white: #ffffff;
+@color-light-blue: #60abff;
+
+// Light theme
+
+@light-primary-color: #f6f8ff;
+@light-secondary-color: #2b3442;
 @light-text-color: #697c9a;
-@light-main-bg-color: #f6f8ff;
-@light-card-bg-color: #ffffff;
+@light-title-color: #222731;
 
-@dark-text-color: #ffffff;
-@dark-main-bg-color: #141d2f;
-@dark-card-bg-color: #1e2a47;
+// Dark theme
+
+@dark-primary-color: #141d2f;
+@dark-secondary-color: #1e2a47;
+@dark-text-color: #697c9a;
+@dark-title-color: #ffffff;
 
 .defineTheme(
-  @themeName: lightTheme,
-  @textColor: @light-text-color,
-  @mainBgColor: @light-main-bg-color,
-  @cardBgColor: @light-card-bg-color
+  @themeName,
+  @textColor,
+  @titleColor,
+  @primaryColor,
+  @secondaryColor,
 ) {
   .@{themeName} {
-    --font-family: @font-family;
     --text-color: @textColor;
-    --bg-color: @mainBgColor;
-    --card-bg-color: @cardBgColor;
+    --title-color: @titleColor;
+    --primary-color: @primaryColor;
+    --secondary-color: @secondaryColor;
   }
 }
 
-.defineTheme();
-.defineTheme(darkTheme, @dark-text-color, @dark-main-bg-color, @dark-card-bg-color);
+.defineTheme(
+  lightTheme,
+  @light-text-color,
+  @light-title-color,
+  @light-primary-color,
+  @light-secondary-color  
+);
+
+.defineTheme(
+  darkTheme,
+  @dark-text-color,
+  @dark-title-color,
+  @dark-primary-color,
+  @dark-secondary-color
+);

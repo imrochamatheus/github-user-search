@@ -12,7 +12,8 @@ export class ThemeToggleService {
   private readonly themeChangedSubject: BehaviorSubject<Theme> =
     new BehaviorSubject<Theme>(this.currentTheme);
 
-  public themeChanged$?: Observable<Theme>;
+  public themeChanged$: Observable<Theme> =
+    this.themeChangedSubject.asObservable();
 
   constructor(@Inject(DOCUMENT) private readonly document: Document) {
     this.init();
