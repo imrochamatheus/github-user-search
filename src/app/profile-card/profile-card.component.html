@@ -1,3 +1,71 @@
-<main>
-  <h1>Hello</h1>
+<main class="profile__container">
+  <header class="profile__header">
+    <section
+      class="profile__image"
+      [ngStyle]="{ backgroundImage: 'url(/assets/img/Bitmap.svg)' }"
+    ></section>
+
+    <section class="profile__info">
+      <h2 class="profile__name">The octocat</h2>
+      <h3 class="profile__username">{{ "@octocat" }}</h3>
+      <p class="profile__bio">Joined 25 Jan 2011</p>
+    </section>
+
+    <section class="profile__description">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+      Quisque volutpat mattis eros.
+    </section>
+  </header>
+
+  <section class="profile__stats">
+    <div class="profile__stat">
+      <h4 class="profile__stat-title">Repos</h4>
+      <p class="profile__stat-value">8</p>
+    </div>
+
+    <div class="profile__stat">
+      <h4 class="profile__stat-title">Followers</h4>
+      <p class="profile__stat-value">3938</p>
+    </div>
+
+    <div class="profile__stat">
+      <h4 class="profile__stat-title">Following</h4>
+      <p class="profile__stat-value">9</p>
+    </div>
+  </section>
+
+  <section class="profile__more-infos">
+    <div class="profile__more-info">
+      <img
+        class="profile__more-info-icon"
+        src="assets/icons/icon-location.svg"
+        alt="location icon"
+      />
+      <span class="profile__more-info-text">Salvador</span>
+    </div>
+    <div class="profile__more-info">
+      <img
+        class="profile__more-info-icon"
+        src="assets/icons/icon-website.svg"
+        alt="website icon"
+      />
+      <span class="profile__more-info-text link">website.com.br</span>
+    </div>
+    <div class="profile__more-info disabled">
+      <img
+        class="profile__more-info-icon"
+        src="assets/icons/icon-twitter.svg"
+        alt="twitter icon"
+      />
+      <span class="profile__more-info-text">twitter.com.br</span>
+    </div>
+    <div class="profile__more-info">
+      <img
+        class="profile__more-info-icon"
+        src="assets/icons/icon-company.svg"
+        alt="company icon"
+      />
+      <span class="profile__more-info-text">Brisanet</span>
+    </div>
+  </section>
 </main>

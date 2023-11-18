@@ -12,61 +12,92 @@
   font-style: normal;
 }
 
+/**
+* Screen sizes
+*/
+
+@mobile: ~"screen and (max-width: 767px)";
+@desktop: ~"screen and (min-width: 1025px)";
+@tablet: ~"screen and (min-width: 768px) and (max-width: 1024px)";
+
+/**
+ * Common font sizes
+ */
+
 @font-family: "Space Mono", monospace;
+
+@font-size-text: 1rem;
 @font-size-title: 1.6rem;
 @font-size-subtitle: 1.3rem;
-@font-size-text: 1rem;
 
+@line-height-text: 1.5rem;
 @line-height-title: 2.4rem;
 @line-height-subtitle: 2rem;
-@line-height-text: 1.5rem;
+
+/**
+ * Common colors
+ */
 
 @color-red: #f74646;
 @color-blue: #0079ff;
 @color-white: #ffffff;
 @color-light-blue: #60abff;
 
-// Light theme
+/**
+ * Light theme
+ */
 
-@light-primary-color: #f6f8ff;
-@light-secondary-color: #2b3442;
+@light-bg-color: #f6f8ff;
+@light-primary-color: #ffffff;
 @light-text-color: #697c9a;
 @light-title-color: #222731;
+@light-shadow-color: rgba(70, 96, 187, 0.2);
 
-// Dark theme
+/**
+ * Dark theme
+ */
 
-@dark-primary-color: #141d2f;
-@dark-secondary-color: #1e2a47;
-@dark-text-color: #697c9a;
+@dark-bg-color: #141d2f;
+@dark-primary-color: #1e2a47;
+@dark-text-color: #ffffff;
 @dark-title-color: #ffffff;
+@dark-shadow-color: none;
+
+/**
+ * Theme definition
+ */
 
 .defineTheme(
   @themeName,
+  @bgColor,
   @textColor,
   @titleColor,
   @primaryColor,
-  @secondaryColor,
+  @shadowColor
 ) {
   .@{themeName} {
+    --bg-color: @bgColor;
     --text-color: @textColor;
     --title-color: @titleColor;
     --primary-color: @primaryColor;
-    --secondary-color: @secondaryColor;
+    --shadow-color: @shadowColor;
   }
 }
 
 .defineTheme(
   lightTheme,
+  @light-bg-color,
   @light-text-color,
   @light-title-color,
   @light-primary-color,
-  @light-secondary-color  
+  @light-shadow-color
 );
 
 .defineTheme(
   darkTheme,
+  @dark-bg-color,
   @dark-text-color,
   @dark-title-color,
   @dark-primary-color,
-  @dark-secondary-color
+  @dark-shadow-color
 );

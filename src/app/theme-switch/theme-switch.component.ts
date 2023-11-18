@@ -44,5 +44,6 @@ export class ThemeSwitchComponent implements OnInit {
 
   public ngOnInit(): void {
     this.listenForThemeChange();
+    this.toggleTheme();
   }
 }
