@@ -12,9 +12,12 @@ export class NoDataTextDirective {
 
   constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
 
-  private setOpacity(): void {
+  private setOpacity(opacity?: string): void {
     this.ngZone.run(() => {
-      this.elementRef.nativeElement.style.opacity = this.noDataOpacity;
+      const elementRefStyle: CSSStyleDeclaration =
+        this.elementRef.nativeElement.style;
+
+      elementRefStyle.opacity = opacity ?? this.noDataOpacity;
     });
   }
 
@@ -24,17 +27,27 @@ export class NoDataTextDirective {
     });
   }
 
+  private handleCharacterDataMutation(mutation: MutationRecord): void {
+    const target: Node = mutation.target;
+    const isEmpty: boolean =
+      !target.textContent || target.textContent.trim() === '';
+
+    if (isEmpty) {
+      this.setOpacity();
+      this.setTargetText(target);
+
+      return;
+    }
+
+    if (target.textContent !== this.noDataText) {
+      this.setOpacity('1');
+    }
+  }
+
   private handleElementMutations(mutations: MutationRecord[]): void {
     mutations.forEach((mutation) => {
       if (mutation.type === 'characterData') {
-        const target: Node = mutation.target;
-        const isEmpty: boolean =
-          !target.textContent || target.textContent.trim() === '';
-
-        if (isEmpty) {
-          this.setOpacity();
-          this.setTargetText(target);
-        }
+        this.handleCharacterDataMutation(mutation);
       }
     });
   }
