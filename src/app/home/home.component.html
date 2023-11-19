@@ -6,11 +6,11 @@
     </header>
 
     <div class="home__search">
-      <search-bar></search-bar>
+      <search-bar (searchedUsername)="searchUser($event)"></search-bar>
     </div>
 
     <div class="home__profile">
-      <profile-card></profile-card>
+      <profile-card [data]="userData"></profile-card>
     </div>
   </div>
 </main>

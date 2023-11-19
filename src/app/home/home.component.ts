@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProfileCardComponent } from '../profile-card/profile-card.component';
-import { ThemeToggleService } from '../theme-switch/theme-toggle.service';
-import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
+import { DEFAULT_GITHUB_USER_DATA } from '../shared/constants';
+import { GithubUser } from '../shared/search-github-user.interfaces';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { ProfileCardComponent } from '../profile-card/profile-card.component';
+import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
+import { SearchGithubUserService } from '../shared/search-github-user.service';
 
 @Component({
   selector: 'toh-home',
@@ -17,8 +19,20 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less',
-  providers: [],
+  providers: [SearchGithubUserService],
 })
-export class HomeComponent {
-  constructor() {}
+export class HomeComponent implements OnInit {
+  public userData: GithubUser = DEFAULT_GITHUB_USER_DATA;
+
+  constructor(private readonly userSearchService: SearchGithubUserService) {}
+
+  public searchUser(username: string) {
+    this.userSearchService.searchUser(username).subscribe({
+      next: (data) => {
+        this.userData = data;
+      },
+    });
+  }
+
+  public ngOnInit(): void {}
 }

@@ -2,35 +2,36 @@
   <header class="profile__header">
     <section
       class="profile__image"
-      [ngStyle]="{ backgroundImage: 'url(/assets/img/Bitmap.svg)' }"
+      [ngStyle]="{ 'background-image': 'url(' + data.avatar_url + ')' }"
     ></section>
 
     <section class="profile__info">
-      <h2 class="profile__name">The octocat</h2>
-      <h3 class="profile__username">{{ "@octocat" }}</h3>
-      <p class="profile__bio">Joined 25 Jan 2011</p>
+      <h2 class="profile__name">{{ data.name }}</h2>
+      <h3 class="profile__username">{{ data.login }}</h3>
+      <p class="profile__joined">
+        Joined {{ data.created_at | date : "mediumDate" : "" : "pt-BR" }}
+      </p>
     </section>
 
-    <section class="profile__description">
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-      Quisque volutpat mattis eros.
+    <section class="profile__bio">
+      {{ data.bio }}
     </section>
   </header>
 
   <section class="profile__stats">
     <div class="profile__stat">
       <h4 class="profile__stat-title">Repos</h4>
-      <p class="profile__stat-value">8</p>
+      <p class="profile__stat-value">{{ data.public_repos }}</p>
     </div>
 
     <div class="profile__stat">
       <h4 class="profile__stat-title">Followers</h4>
-      <p class="profile__stat-value">3938</p>
+      <p class="profile__stat-value">{{ data.followers }}</p>
     </div>
 
     <div class="profile__stat">
       <h4 class="profile__stat-title">Following</h4>
-      <p class="profile__stat-value">9</p>
+      <p class="profile__stat-value">{{ data.following }}</p>
     </div>
   </section>
 
@@ -41,7 +42,9 @@
         src="assets/icons/icon-location.svg"
         alt="location icon"
       />
-      <span class="profile__more-info-text">Salvador</span>
+      <span class="profile__more-info-text">{{
+        data.location || "Not Available"
+      }}</span>
     </div>
     <div class="profile__more-info">
       <img
@@ -49,7 +52,9 @@
         src="assets/icons/icon-website.svg"
         alt="website icon"
       />
-      <span class="profile__more-info-text link">website.com.br</span>
+      <span class="profile__more-info-text link">{{
+        data.blog || "Not Available"
+      }}</span>
     </div>
     <div class="profile__more-info disabled">
       <img
@@ -57,7 +62,9 @@
         src="assets/icons/icon-twitter.svg"
         alt="twitter icon"
       />
-      <span class="profile__more-info-text">twitter.com.br</span>
+      <span class="profile__more-info-text">{{
+        data.twitter_username || "Not Available"
+      }}</span>
     </div>
     <div class="profile__more-info">
       <img
@@ -65,7 +72,9 @@
         src="assets/icons/icon-company.svg"
         alt="company icon"
       />
-      <span class="profile__more-info-text">Brisanet</span>
+      <span class="profile__more-info-text">{{
+        data.company || "Not Available"
+      }}</span>
     </div>
   </section>
 </main>

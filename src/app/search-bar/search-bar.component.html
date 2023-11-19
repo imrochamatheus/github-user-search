@@ -6,11 +6,12 @@
       alt="search icon"
     />
     <input
+      [(ngModel)]="username"
       type="text"
       name="profile-name"
       class="search-input"
       placeholder="Search GitHub user..."
     />
   </div>
-  <button class="search-button">Search</button>
+  <button class="search-button" (click)="searchUser()">Search</button>
 </div>
