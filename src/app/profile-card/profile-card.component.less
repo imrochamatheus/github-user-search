@@ -4,21 +4,23 @@
 .profile__container {
   .flex(
       @direction: column,
-      @gap: 1.5rem
+      @gap: 2rem
     );
 
   width: 100%;
   padding: 3rem 1.5rem;
   border-radius: 0.9rem;
-
   background-color: var(--primary-color);
+  box-shadow: 0px 1rem 1.8rem -0.6rem var(--shadow-color);
 
   .profile__header {
     display: grid;
-    grid-row-gap: 2rem;
+    column-gap: 1.2rem;
+    grid-row-gap: 1.2rem;
     grid-template-areas:
       "profile-image info"
       "description description";
+    grid-template-columns: minmax(70px, auto) 1fr;
 
     .profile__image {
       grid-area: profile-image;
@@ -26,7 +28,6 @@
       width: 100%;
       height: 70px;
       max-width: 70px;
-
       border-radius: 50%;
       background-size: cover;
       background-repeat: no-repeat;
@@ -34,10 +35,12 @@
 
     .profile__info {
       grid-area: info;
+      width: 100%;
+      max-width: 200px;
 
       .profile__name {
-        font-size: @font-size-text;
         color: var(--title-color);
+        font-size: @font-size-text;
       }
 
       .profile__username {
@@ -45,27 +48,34 @@
       }
 
       .profile__username,
-      .profile__bio {
+      .profile__joined {
         font-size: 0.8rem;
       }
 
-      .profile__bio {
+      .profile__joined {
         color: var(--title-color);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
 
-    .profile__description {
+    .profile__bio {
       grid-area: description;
-
       font-size: 0.8rem;
       color: var(--text-color);
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
 
   .profile__stats {
     padding: 1rem;
     border-radius: 0.8rem;
-
     background-color: var(--bg-color);
 
     display: flex;
@@ -77,14 +87,12 @@
       .profile__stat-title {
         font-weight: 400;
         font-size: 0.6rem;
-
         color: var(--text-color);
       }
 
       .profile__stat-value {
         font-weight: bold;
         font-size: @font-size-text;
-
         color: var(--title-color);
       }
     }
@@ -107,6 +115,7 @@
 
       &-text {
         color: var(--text-color);
+        word-break: break-all;
       }
     }
   }
@@ -130,11 +139,13 @@
 @media @tablet {
   .profile__container {
     padding: 3rem;
-
     width: 100%;
     max-width: 573px;
 
     .profile__header {
+      column-gap: 2rem;
+      grid-template-columns: minmax(117px, auto) 1fr;
+
       .profile__image {
         width: 100%;
         height: 117px;
@@ -142,28 +153,29 @@
       }
 
       .profile__info {
+        max-width: unset;
+
         .profile__name {
           font-size: 1.6rem;
         }
 
         .profile__username,
-        .profile__bio {
+        .profile__joined {
           font-size: 1rem;
         }
       }
 
-      .profile__description {
+      .profile__bio {
         font-size: 1rem;
       }
     }
 
     .profile__stats {
-      padding: 1rem 2rem;
-
       align-self: center;
 
       width: 100%;
       max-width: 493px;
+      padding: 1rem 2rem;
 
       .profile__stat {
         .profile__stat-title {
@@ -202,12 +214,13 @@
 @media @desktop {
   .profile__container {
     padding: 3rem;
-
     display: grid;
+    column-gap: 2rem;
     grid-template-areas:
       "header header"
       ". stats"
       ". more-infos";
+    grid-template-columns: minmax(117px, auto) 1fr;
 
     .profile__header {
       grid-area: header;
@@ -217,11 +230,10 @@
       grid-template-areas:
         "profile-image info"
         "profile-image description";
-      grid-template-columns: minmax(117px, auto) 1fr;
+      grid-template-columns: subgrid;
 
       .profile__image {
         grid-area: profile-image;
-
         width: 100%;
         height: 117px;
         max-width: 117px;
@@ -229,11 +241,13 @@
 
       .profile__info {
         grid-area: info;
+        max-width: unset;
 
         display: grid;
         grid-template-areas:
           "name bio"
           "username .";
+        column-gap: 1rem;
         grid-template-rows: auto;
         grid-template-columns: auto 1fr;
 
@@ -243,33 +257,37 @@
         }
 
         .profile__username,
-        .profile__bio {
+        .profile__joined {
           font-size: 1rem;
+          width: 100%;
         }
 
         .profile__username {
           grid-area: username;
         }
 
-        .profile__bio {
+        .profile__joined {
           grid-area: bio;
           justify-self: end;
+          align-self: center;
         }
       }
 
-      .profile__description {
+      .profile__bio {
         grid-area: description;
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
 
     .profile__stats {
       grid-area: stats;
-
-      padding: 1rem;
+      max-width: 480px;
+      width: 100%;
+      padding: 0;
       border-radius: 0.8rem;
 
       display: flex;
+      justify-self: center;
       justify-content: space-between;
 
       .profile__stat {
@@ -293,9 +311,9 @@
       row-gap: 1.2rem;
 
       .profile__more-info {
-        width: 50%;
         gap: 1rem;
 
+        width: 50%;
         font-size: 0.9rem;
 
         &-icon {
