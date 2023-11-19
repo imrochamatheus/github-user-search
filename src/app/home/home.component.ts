@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DEFAULT_GITHUB_USER_DATA } from '../shared/constants';
-import { GithubUser } from '../shared/search-github-user.interfaces';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { GithubUser } from '../shared/services/search-github-user.interfaces';
 import { ProfileCardComponent } from '../profile-card/profile-card.component';
 import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
-import { SearchGithubUserService } from '../shared/search-github-user.service';
+import { SearchGithubUserService } from '../shared/services/search-github-user.service';
 
 @Component({
   selector: 'toh-home',

@@ -101,24 +101,6 @@
 
   .profile__more-infos {
     .flex(@gap: 1rem, @direction: column);
-
-    .profile__more-info {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-
-      font-size: 0.8rem;
-      font-weight: 400;
-
-      &-icon {
-        width: 0.9rem;
-      }
-
-      &-text {
-        color: var(--text-color);
-        word-break: break-all;
-      }
-    }
   }
 }
 
@@ -192,17 +174,10 @@
 
     .profile__more-infos {
       .flex(@align: center, @wrap: wrap);
-      row-gap: 1rem;
+      row-gap: 1.1rem;
 
-      .profile__more-info {
+      > profile-more-info {
         width: 50%;
-        font-size: 0.9rem;
-
-        gap: 1rem;
-
-        &-icon {
-          width: 1rem;
-        }
       }
     }
   }
@@ -271,6 +246,7 @@
           grid-area: bio;
           justify-self: end;
           align-self: center;
+          text-align: right;
         }
       }
 
@@ -311,15 +287,8 @@
       .flex(@align: center, @wrap: wrap);
       row-gap: 1.2rem;
 
-      .profile__more-info {
-        gap: 1rem;
-
+      > profile-more-info {
         width: 50%;
-        font-size: 0.9rem;
-
-        &-icon {
-          width: 1.1rem;
-        }
       }
     }
   }

@@ -1,0 +1,43 @@
+@import "_variables";
+@import "_mixins";
+
+.profile__more-info {
+  .flex(@align: center, @gap: 1rem);
+
+  font-size: 0.8rem;
+  font-weight: 400;
+
+  &-icon {
+    width: 0.9rem;
+  }
+
+  &-text {
+    color: var(--text-color);
+    word-break: break-all;
+  }
+}
+
+@media @tablet {
+  .profile__more-info {
+    gap: 1rem;
+
+    font-size: 0.9rem;
+
+    &-icon {
+      width: 1rem;
+    }
+  }
+}
+
+@media @desktop {
+  .profile__more-info {
+    font-size: 0.9rem;
+
+    gap: 1rem;
+    flex: 1;
+
+    &-icon {
+      width: 1.1rem;
+    }
+  }
+}

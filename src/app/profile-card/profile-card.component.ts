@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GithubUser } from '../shared/search-github-user.interfaces';
-import { DEFAULT_GITHUB_USER_DATA } from '../shared/constants';
+
+import { GithubUser } from '../shared/services/search-github-user.interfaces';
+import { NoDataTextDirective } from '../shared/directives/no-data-text.directive';
+import { ProfileMoreInfoComponent } from './profile-more-info/profile-more-info.component';
 
 @Component({
   selector: 'profile-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NoDataTextDirective, ProfileMoreInfoComponent],
   templateUrl: './profile-card.component.html',
   styleUrl: './profile-card.component.less',
 })
