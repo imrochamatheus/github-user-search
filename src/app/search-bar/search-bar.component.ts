@@ -13,7 +13,7 @@ export class SearchBarComponent {
   @Output() public searchedUsername: EventEmitter<string> =
     new EventEmitter<string>();
 
-  public username: string = 'imrochamatheus';
+  public username: string = '';
 
   constructor() {}
 
