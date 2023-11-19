@@ -6,7 +6,7 @@
     ></section>
 
     <section class="profile__info">
-      <h2 class="profile__name">{{ data.name }}</h2>
+      <h2 class="profile__name">{{ data.name || "Not available" }}</h2>
       <h3 class="profile__username">{{ data.login }}</h3>
       <p class="profile__joined">
         Joined {{ data.created_at | date : "mediumDate" : "" : "pt-BR" }}
@@ -14,7 +14,7 @@
     </section>
 
     <section class="profile__bio">
-      {{ data.bio }}
+      {{ data.bio || "No bio yet" }}
     </section>
   </header>
 
