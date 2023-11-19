@@ -15,13 +15,8 @@ export class ProfileMoreInfoComponent implements OnInit {
   @Input() public imagePath!: string;
   @Input() public textContent?: string;
 
-  public get defaultTextContent(): string {
-    return 'Not available';
-  }
-
-  public get defaultOpacity(): string {
-    return '0.5';
-  }
+  public defaultTextContent: string = 'Not available';
+  public defaultOpacity: string = '0.5';
 
   constructor() {}
 

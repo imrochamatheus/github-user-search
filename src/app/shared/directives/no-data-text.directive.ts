@@ -1,12 +1,14 @@
 import { Directive, ElementRef, Input, NgZone } from '@angular/core';
 
+import { NO_OPACITY_VALUE } from '../constants';
+
 @Directive({
   selector: '[noDataText]',
   standalone: true,
 })
 export class NoDataTextDirective {
   @Input() public noDataText: string = '';
-  @Input() public noDataOpacity: string = '1';
+  @Input() public noDataOpacity: string = NO_OPACITY_VALUE;
 
   private _observer?: MutationObserver;
 
@@ -29,8 +31,7 @@ export class NoDataTextDirective {
 
   private handleCharacterDataMutation(mutation: MutationRecord): void {
     const target: Node = mutation.target;
-    const isEmpty: boolean =
-      !target.textContent || target.textContent.trim() === '';
+    const isEmpty: boolean = target.textContent?.trim() === '';
 
     if (isEmpty) {
       this.setOpacity();
@@ -40,7 +41,7 @@ export class NoDataTextDirective {
     }
 
     if (target.textContent !== this.noDataText) {
-      this.setOpacity('1');
+      this.setOpacity(NO_OPACITY_VALUE);
     }
   }
 

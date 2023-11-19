@@ -14,3 +14,5 @@ export const DEFAULT_GITHUB_USER_DATA: GithubUser = {
   twitter_username: 'Not Available',
   login: '@octocat',
 } as GithubUser;
+
+export const NO_OPACITY_VALUE: string = '1';
