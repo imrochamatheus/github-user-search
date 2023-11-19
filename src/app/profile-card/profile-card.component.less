@@ -41,6 +41,8 @@
       .profile__name {
         color: var(--title-color);
         font-size: @font-size-text;
+
+        .ellipsis();
       }
 
       .profile__username {
@@ -54,9 +56,8 @@
 
       .profile__joined {
         color: var(--title-color);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+
+        .ellipsis();
       }
     }
 
@@ -144,7 +145,7 @@
 
     .profile__header {
       column-gap: 2rem;
-      grid-template-columns: minmax(117px, auto) 1fr;
+      grid-template-columns: minmax(117px, auto) minmax(auto, 300px);
 
       .profile__image {
         width: 100%;

@@ -17,8 +17,13 @@ export class SearchBarComponent {
 
   constructor() {}
 
+  private clearSearchTherm(): void {
+    this.username = '';
+  }
+
   public searchUser(): void {
     this.searchedUsername.emit(this.username);
+    this.clearSearchTherm();
   }
 
   public ngOnInit(): void {}
