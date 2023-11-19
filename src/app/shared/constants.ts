@@ -1,4 +1,4 @@
-import { GithubUser } from './search-github-user.interfaces';
+import { GithubUser } from './services/search-github-user.interfaces';
 
 export const DEFAULT_GITHUB_USER_DATA: GithubUser = {
   name: 'The octocat',
@@ -12,5 +12,5 @@ export const DEFAULT_GITHUB_USER_DATA: GithubUser = {
   blog: 'https://github.blog',
   company: '@github',
   twitter_username: 'Not Available',
-  login: ' @octocat',
+  login: '@octocat',
 } as GithubUser;
