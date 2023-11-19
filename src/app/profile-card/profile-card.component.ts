@@ -15,6 +15,8 @@ import { ProfileMoreInfoComponent } from './profile-more-info/profile-more-info.
 export class ProfileCardComponent implements OnInit {
   @Input() public data!: GithubUser;
 
+  public defaultProfileImage: string = '/assets/img/Bitmap.svg';
+
   constructor() {}
 
   public ngOnInit(): void {}

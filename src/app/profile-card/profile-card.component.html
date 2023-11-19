@@ -2,7 +2,10 @@
   <header class="profile__header">
     <section
       class="profile__image"
-      [ngStyle]="{ 'background-image': 'url(' + data.avatar_url + ')' }"
+      [ngStyle]="{
+        'background-image':
+          'url(' + data.avatar_url || defaultProfileImage + ')'
+      }"
     ></section>
 
     <section class="profile__info">
