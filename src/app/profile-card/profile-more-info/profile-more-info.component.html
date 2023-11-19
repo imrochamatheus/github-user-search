@@ -4,5 +4,11 @@
   [noDataOpacity]="defaultOpacity"
 >
   <img class="profile__more-info-icon" alt="location icon" [src]="imagePath" />
-  <span class="profile__more-info-text">{{ textContent }}</span>
+  <span
+    class="profile__more-info-text"
+    [ngClass]="{
+      link: textContent && isLink,
+    }"
+    >{{ textContent }}</span
+  >
 </div>

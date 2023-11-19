@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { NoDataTextDirective } from '../../shared/directives/no-data-text.directive';
 
 @Component({
-  selector: 'profile-more-info',
-  standalone: true,
   imports: [CommonModule, NoDataTextDirective],
-  templateUrl: './profile-more-info.component.html',
+  standalone: true,
+  selector: 'profile-more-info',
   styleUrl: './profile-more-info.component.less',
+  templateUrl: './profile-more-info.component.html',
 })
 export class ProfileMoreInfoComponent implements OnInit {
+  @Input() public isLink?: boolean;
   @Input() public imagePath!: string;
   @Input() public textContent?: string;
 
