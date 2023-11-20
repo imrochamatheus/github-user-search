@@ -16,7 +16,7 @@
   .profile__header {
     display: grid;
     column-gap: 1.2rem;
-    grid-row-gap: 1.2rem;
+    grid-row-gap: 2rem;
     grid-template-areas:
       "profile-image info"
       "description description";
@@ -56,6 +56,7 @@
 
       .profile__joined {
         color: var(--title-color);
+        margin-top: 0.3rem;
 
         .ellipsis();
       }
@@ -64,6 +65,7 @@
     .profile__bio {
       grid-area: description;
       font-size: 0.8rem;
+      line-height: 1.5rem;
       color: var(--text-color);
 
       overflow: hidden;
@@ -101,6 +103,8 @@
 
   .profile__more-infos {
     .flex(@gap: 1rem, @direction: column);
+
+    margin-top: 0.3rem;
   }
 }
 
@@ -127,7 +131,8 @@
 
     .profile__header {
       column-gap: 2rem;
-      grid-template-columns: minmax(117px, auto) minmax(auto, 300px);
+      grid-row-gap: 1.5rem;
+      grid-template-columns: minmax(117px, auto) 1fr;
 
       .profile__image {
         width: 100%;
@@ -192,6 +197,7 @@
     padding: 3rem;
     display: grid;
     column-gap: 2rem;
+
     grid-template-areas:
       "header header"
       ". stats"
@@ -247,6 +253,7 @@
           justify-self: end;
           align-self: center;
           text-align: right;
+          margin-top: unset;
         }
       }
 
@@ -269,7 +276,7 @@
 
       .profile__stat {
         .flex(@align: center, @direction: column);
-        padding: 0.9rem 2rem;
+        padding: 1rem 2rem;
 
         .profile__stat-title {
           font-size: 0.9rem;
