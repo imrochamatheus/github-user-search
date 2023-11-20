@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "test": "ng test",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build:github": "ng build --output-path=dist/github-user-search --base-href=https://imrochamatheus.github.io/github-user-search/",
+    "deploy:github": "npm run build:github && npx angular-cli-ghpages --dir=dist/github-user-search/browser"
   },
   "private": true,
   "dependencies": {
