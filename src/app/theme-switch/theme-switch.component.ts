@@ -13,7 +13,7 @@ import { Theme } from './interfaces';
 })
 export class ThemeSwitchComponent implements OnInit {
   public currentTheme: Theme = Theme.LIGHT;
-  public baseIconPath: string = '/assets/icons/';
+  public baseIconPath: string = 'assets/icons/';
 
   public get iconPath(): string {
     const iconsMap: Map<Theme, string> = new Map([
