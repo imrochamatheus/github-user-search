@@ -24,7 +24,7 @@ div.search__container {
       border: none;
       border-radius: 0.5rem;
 
-      font-size: var(--font-size-text);
+      font-size: 0.8rem;
       line-height: var(--line-height-text);
 
       color: var(--text-color);
@@ -57,6 +57,20 @@ div.search__container {
 
     &:hover {
       background-color: @color-light-blue;
+    }
+  }
+}
+
+@media @tablet, @desktop {
+  div.search__container {
+    .input-with-icon {
+      .search-input {
+        font-size: 1.1rem;
+      }
+    }
+
+    .search-button {
+      font-size: 1rem;
     }
   }
 }
